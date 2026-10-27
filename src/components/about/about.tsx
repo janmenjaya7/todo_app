@@ -1,12 +1,12 @@
 import { SymbolView, type SymbolViewProps } from "expo-symbols";
 import { Fragment } from "react";
 import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    Text,
+    useColorScheme,
+    View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -16,8 +16,8 @@ import { BottomTabInset, Colors, Gradients, Spacing } from "@/constants/theme";
 
 // Placeholder data — replace with the signed-in user's details
 const user = {
-  name: "Jane Doe",
-  email: "jane.doe@example.com",
+  name: "Janmenjaya Biswal",
+  email: "janmenjayabiswal@gmail.com",
   stats: [
     { label: "Courses", value: "12" },
     { label: "Completed", value: "5" },
@@ -28,10 +28,19 @@ const user = {
 type MenuItem = { label: string; icon: SymbolViewProps["name"] };
 
 const menu: MenuItem[] = [
-  { label: "Personal info", icon: { ios: "person.text.rectangle", android: "badge" } },
-  { label: "Notifications", icon: { ios: "bell.fill", android: "notifications" } },
+  {
+    label: "Personal info",
+    icon: { ios: "person.text.rectangle", android: "badge" },
+  },
+  {
+    label: "Notifications",
+    icon: { ios: "bell.fill", android: "notifications" },
+  },
   { label: "Privacy & security", icon: { ios: "lock.fill", android: "lock" } },
-  { label: "Help & support", icon: { ios: "questionmark.circle.fill", android: "help" } },
+  {
+    label: "Help & support",
+    icon: { ios: "questionmark.circle.fill", android: "help" },
+  },
 ];
 
 const initials = user.name
@@ -72,9 +81,18 @@ export default function ProfileScreen() {
       <GlassCard style={styles.stats}>
         {user.stats.map((stat, i) => (
           <Fragment key={stat.label}>
-            {i > 0 && <View style={[styles.statDivider, { backgroundColor: colors.textSecondary }]} />}
+            {i > 0 && (
+              <View
+                style={[
+                  styles.statDivider,
+                  { backgroundColor: colors.textSecondary },
+                ]}
+              />
+            )}
             <View style={styles.stat}>
-              <Text style={[styles.statValue, { color: colors.text }]}>{stat.value}</Text>
+              <Text style={[styles.statValue, { color: colors.text }]}>
+                {stat.value}
+              </Text>
               <Text style={[styles.statLabel, { color: colors.textSecondary }]}>
                 {stat.label}
               </Text>
@@ -86,12 +104,29 @@ export default function ProfileScreen() {
       <GlassCard style={styles.menu}>
         {menu.map((item, i) => (
           <Fragment key={item.label}>
-            {i > 0 && <View style={[styles.rowDivider, { backgroundColor: colors.textSecondary }]} />}
-            <Pressable style={({ pressed }) => [styles.row, pressed && styles.pressed]}>
-              <View style={[styles.rowIcon, { backgroundColor: colors.accentSoft }]}>
-                <SymbolView name={item.icon} size={18} tintColor={colors.accent} />
+            {i > 0 && (
+              <View
+                style={[
+                  styles.rowDivider,
+                  { backgroundColor: colors.textSecondary },
+                ]}
+              />
+            )}
+            <Pressable
+              style={({ pressed }) => [styles.row, pressed && styles.pressed]}
+            >
+              <View
+                style={[styles.rowIcon, { backgroundColor: colors.accentSoft }]}
+              >
+                <SymbolView
+                  name={item.icon}
+                  size={18}
+                  tintColor={colors.accent}
+                />
               </View>
-              <Text style={[styles.rowLabel, { color: colors.text }]}>{item.label}</Text>
+              <Text style={[styles.rowLabel, { color: colors.text }]}>
+                {item.label}
+              </Text>
               <SymbolView
                 name={{ ios: "chevron.right", android: "chevron_right" }}
                 size={16}
@@ -104,7 +139,9 @@ export default function ProfileScreen() {
 
       <GlassButton title="Edit profile" onPress={() => {}} />
 
-      <Pressable style={({ pressed }) => [styles.logout, pressed && styles.pressed]}>
+      <Pressable
+        style={({ pressed }) => [styles.logout, pressed && styles.pressed]}
+      >
         <Text style={styles.logoutText}>Log out</Text>
       </Pressable>
     </ScrollView>
@@ -134,7 +171,8 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     alignItems: "center",
     justifyContent: "center",
-    experimental_backgroundImage: "linear-gradient(135deg, #208AEF 0%, #8B5CF6 100%)",
+    experimental_backgroundImage:
+      "linear-gradient(135deg, #208AEF 0%, #8B5CF6 100%)",
   },
   initials: {
     color: "#ffffff",
